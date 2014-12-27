@@ -6,9 +6,10 @@ export SAVEHIST=65536
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias ll='ls -halF --time-style=long-iso'
-alias clang='clang -std=c11'
-alias clang++='clang++ -std=c++1z -stdlib=libc++'
+alias l='ls -halF --time-style=long-iso'
+alias ll=l
+alias clang='clang -std=c11 -Wall'
+alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
 zmodload zsh/complist
 
