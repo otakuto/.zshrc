@@ -16,6 +16,7 @@ alias gp='git push'
 alias gca='git commit -a -m'
 alias gca!='git commit -a --amend -m'
 alias ga='git add'
+alias gd='git diff'
 
 zmodload zsh/complist
 
