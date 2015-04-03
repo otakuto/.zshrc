@@ -3,6 +3,7 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
+export LESSHISTFILE=-
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
