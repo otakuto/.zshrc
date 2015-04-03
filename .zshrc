@@ -4,6 +4,7 @@ export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
 export LESSHISTFILE=-
+export EDITOR=vim
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
