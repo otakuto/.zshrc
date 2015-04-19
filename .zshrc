@@ -58,6 +58,7 @@ bindkey '^N' history-beginning-search-forward
 bindkey '^H' vi-backward-char
 bindkey '^L' vi-forward-char
 bindkey '^O' backward-delete-char
+bindkey '^U' kill-whole-line
 bindkey '^B' clear-screen
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
@@ -70,6 +71,8 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
+bindkey '^[q' push-line
+bindkey -r '^['
 
 function chpwd()
 {
