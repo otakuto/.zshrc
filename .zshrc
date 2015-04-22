@@ -25,6 +25,7 @@ alias gd='git diff'
 alias -s c='(){clang $1 && shift && ./a.out $@}'
 alias -s cpp='(){clang++ $1 && shift && ./a.out $@}'
 alias -s py=python
+alias -s hs=runhaskell
 
 zmodload zsh/complist
 
