@@ -22,8 +22,8 @@ alias gca!='git commit -a --amend -m'
 alias ga='git add'
 alias gd='git diff'
 
-alias -s c='(){clang $1 && shift && ./a.out $@}'
-alias -s cpp='(){clang++ $1 && shift && ./a.out $@}'
+alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
+alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
 alias -s py=python
 alias -s hs=runhaskell
 
@@ -74,6 +74,29 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey '^[q' push-line
 bindkey -r '^['
+
+function c-m()
+{
+	zle accept-line
+	if [[ -z $BUFFER ]]; then
+		echo ''
+		l
+	fi
+}
+zle -N c-m
+bindkey '^M' c-m
+
+function c-v()
+{
+	if [[ ${BUFFER:0:2} = 'v ' ]]; then
+		BUFFER=${BUFFER:2}
+	else
+		BUFFER='v '$BUFFER
+	fi
+	CURSOR='$'
+}
+zle -N c-v
+bindkey '^V' c-v
 
 function chpwd()
 {
