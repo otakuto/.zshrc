@@ -178,3 +178,6 @@ if [[ -z $TMUX ]]; then
 	fi
 fi
 
+if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+	zcompile ~/.zshrc
+fi
