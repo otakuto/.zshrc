@@ -36,6 +36,7 @@ autoload history-search-end
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors '${LS_COLORS}'
+zstyle ':completion:*' use-cache yes
 
 setopt auto_menu
 setopt auto_list
