@@ -9,7 +9,6 @@ export EDITOR=vim
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias l='ls -halF --time-style=long-iso'
-alias ll=l
 alias v=vim
 alias ext=extract
 alias clang='clang -std=c11 -Wall'
@@ -113,7 +112,7 @@ bindkey '^Z' ^Z
 
 function chpwd()
 {
-	l;
+	l
 }
 
 if type wpa_supplicant &> /dev/null; then
