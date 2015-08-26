@@ -1,5 +1,5 @@
 export PS1='%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
-export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?_[]~=&;!#$%^(){}<>'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
@@ -61,6 +61,7 @@ bindkey '^H' vi-backward-char
 bindkey '^L' vi-forward-char
 bindkey '^O' backward-delete-char
 bindkey '^U' kill-whole-line
+bindkey '^W' backward-kill-word
 bindkey '^B' clear-screen
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
