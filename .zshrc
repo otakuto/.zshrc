@@ -102,9 +102,9 @@ bindkey '^V' ^V
 
 function ^Z()
 {
-	echo
-	if fg; then
+	if [[ -n $(jobs) ]]; then
 		zle push-line
+		BUFFER='fg'
 		zle accept-line
 	fi
 }
