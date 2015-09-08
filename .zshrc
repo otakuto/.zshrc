@@ -104,7 +104,7 @@ function ^Z()
 {
 	if [[ -n $(jobs) ]]; then
 		zle push-line
-		BUFFER='fg'
+		BUFFER=' fg'
 		zle accept-line
 	fi
 }
