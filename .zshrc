@@ -1,5 +1,5 @@
 export PS1='%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
-export WORDCHARS='*?_[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
