@@ -21,6 +21,8 @@ alias gca!='git commit -a --amend -m'
 alias ga='git add'
 alias gd='git diff'
 
+alias agg='ag -g'
+
 alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
 alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
 alias -s py=python
