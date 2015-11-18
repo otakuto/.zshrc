@@ -55,6 +55,7 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt share_history
 setopt extended_history
+setopt inc_append_history
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
