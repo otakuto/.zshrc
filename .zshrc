@@ -47,13 +47,14 @@ setopt globdots
 setopt magic_equal_subst
 setopt auto_cd
 setopt auto_param_slash
-setopt extended_history
-setopt share_history
 setopt ignore_eof
 setopt no_beep
 setopt no_flow_control
 setopt numeric_glob_sort
 setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt share_history
+setopt extended_history
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
