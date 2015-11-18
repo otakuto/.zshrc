@@ -65,6 +65,8 @@ bindkey '^O' backward-delete-char
 bindkey '^U' kill-whole-line
 bindkey '^W' backward-kill-word
 bindkey '^B' clear-screen
+bindkey "^F" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
@@ -78,6 +80,8 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey '^[q' push-line
 bindkey -r '^['
+
+stty stop undef
 
 function ^M()
 {
@@ -112,6 +116,19 @@ function ^Z()
 }
 zle -N ^Z
 bindkey '^Z' ^Z
+
+function ^I()
+{
+	if [[ -z $BUFFER ]]; then
+		BUFFER='./'
+		CURSOR='$'
+		zle expand-or-complete
+	else
+		zle expand-or-complete
+	fi
+}
+zle -N ^I
+bindkey '^I' ^I
 
 function chpwd()
 {
