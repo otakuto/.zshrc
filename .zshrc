@@ -66,8 +66,8 @@ bindkey '^O' backward-delete-char
 bindkey '^U' kill-whole-line
 bindkey '^W' backward-kill-word
 bindkey '^B' clear-screen
-bindkey "^F" history-incremental-search-backward
-bindkey "^S" history-incremental-search-forward
+bindkey '^F' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
