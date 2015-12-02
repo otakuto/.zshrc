@@ -140,9 +140,25 @@ function chpwd()
 if type wpa_supplicant &> /dev/null; then
 	wifi()
 	{
-		if [[ $# != 3 ]]; then
-			echo 'Usage: '$0' <interface> <essid> <key>'
+		if [[ $1 = '-h' || $1 = '--help' ]]; then
+			echo 'Usage: '$0' <interface> <essid> [key]'
 			return
+		fi
+
+		if [[ $# = 0 ]]; then
+			echo -n 'interface:'
+			read 1
+		fi
+
+		if [[ $# = 1 ]]; then
+			echo -n 'essid:'
+			read 2
+		fi
+
+		if [[ $# = 2 ]]; then
+			echo -n 'password:'
+			read -s 3
+			echo
 		fi
 
 		rm -rf /run/wpa_supplicant
@@ -150,17 +166,27 @@ if type wpa_supplicant &> /dev/null; then
 		killall dhcpcd
 		ip link set $1 up
 		iw $1 connect $2
-		wpa_supplicant -B -D wext -i $1 -c <(echo "\
-		ctrl_interface=/run/wpa_supplicant
-		ap_scan=1
-		network={
-			ssid=\"$2\"
-			key_mgmt=WPA-PSK
-			proto=WPA WPA2
-			pairwise=CCMP TKIP
-			group=CCMP TKIP
-			psk=\"$3\"
-		}")
+		if [[ -z $3 ]]; then
+			wpa_supplicant -B -D wext -i $1 -c <(echo "\
+			ctrl_interface=/run/wpa_supplicant
+			ap_scan=1
+			network={
+				ssid=\"$2\"
+				key_mgmt=NONE
+			}")
+		else
+			wpa_supplicant -B -D wext -i $1 -c <(echo "\
+			ctrl_interface=/run/wpa_supplicant
+			ap_scan=1
+			network={
+				ssid=\"$2\"
+				key_mgmt=WPA-PSK
+				proto=WPA WPA2
+				pairwise=CCMP TKIP
+				group=CCMP TKIP
+				psk=\"$3\"
+			}")
+		fi
 		dhcpcd $1
 	}
 fi
