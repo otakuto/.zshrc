@@ -27,6 +27,9 @@ alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
 alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
 alias -s py=python
 alias -s hs=runhaskell
+alias -s png=feh
+alias -s gif=feh
+alias -s jpg=feh
 
 zmodload zsh/complist
 
