@@ -169,7 +169,7 @@ wifi()
 	ip link set $1 up
 	iw $1 connect $2
 	if [[ -z $3 ]]; then
-		wpa_supplicant -B -D wext -i $1 -c <(echo "\
+		wpa_supplicant -B -D nl80211 -i $1 -c <(echo "\
 		ctrl_interface=/run/wpa_supplicant
 		ap_scan=1
 		network={
@@ -177,7 +177,7 @@ wifi()
 			key_mgmt=NONE
 		}")
 	else
-		wpa_supplicant -B -D wext -i $1 -c <(echo "\
+		wpa_supplicant -B -D nl80211 -i $1 -c <(echo "\
 		ctrl_interface=/run/wpa_supplicant
 		ap_scan=1
 		network={
