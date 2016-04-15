@@ -37,7 +37,7 @@ autoload -U compinit && compinit -d ~/.zsh/.zcompdump
 autoload -U colors && colors
 autoload history-search-end
 
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z} r:|[-_.]=**'
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors '${LS_COLORS}'
 zstyle ':completion:*' use-cache yes
