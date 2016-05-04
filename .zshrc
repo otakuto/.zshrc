@@ -30,6 +30,7 @@ alias -s hs=runhaskell
 alias -s png=feh
 alias -s gif=feh
 alias -s jpg=feh
+alias -s diag='(){blockdiag $1 && feh $1:r.png}'
 
 zmodload zsh/complist
 
@@ -37,6 +38,7 @@ autoload -U compinit && compinit -d ~/.zsh/.zcompdump
 autoload -U colors && colors
 autoload history-search-end
 
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z} r:|[-_.]=**'
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors '${LS_COLORS}'
