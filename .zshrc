@@ -6,8 +6,8 @@ export SAVEHIST=65536
 export LESSHISTFILE=-
 export EDITOR=vim
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+alias ls='ls --color=always'
+alias grep='grep --color=always'
 alias l='ls -halF --time-style=long-iso'
 alias v=vim
 alias ext=extract
