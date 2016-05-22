@@ -10,8 +10,8 @@ alias ls='ls --color=always'
 alias grep='grep --color=always'
 alias l='ls -halF --time-style=long-iso'
 alias xxd='xxd -g1'
-alias v=vim
-alias ext=extract
+alias v='vim'
+alias ext='extract'
 alias clang='clang -std=c11 -Wall'
 alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
