@@ -151,7 +151,7 @@ if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 			return
 		fi
 
-		echo $1 > /sys/class/backlight/intel_backlight/brightness
+		sudo zsh -c "echo $(($(cat /sys/class/backlight/intel_backlight/max_brightness) * $1 / 100)) > /sys/class/backlight/intel_backlight/brightness"
 	}
 fi
 
