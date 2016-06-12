@@ -165,9 +165,12 @@ if type ip &> /dev/null; then
 			return
 		fi
 
+		sudo zsh -c\
+		"
 		ip link set $1 down
 		ip link set $1 address $2
 		ip link set $1 up
+		"
 	}
 fi
 
