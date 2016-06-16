@@ -111,7 +111,7 @@ function ^V()
 	else
 		BUFFER='v '$BUFFER
 	fi
-	CURSOR='$'
+	zle end-of-line
 }
 zle -N ^V
 bindkey '^V' ^V
@@ -131,7 +131,7 @@ function ^I()
 {
 	if [[ -z $BUFFER ]]; then
 		BUFFER='./'
-		CURSOR='$'
+		zle end-of-line
 		zle expand-or-complete
 	else
 		zle expand-or-complete
