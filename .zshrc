@@ -1,4 +1,4 @@
-export PS1='%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
+export PS1='%(1j.$(joblist)'$'\n''.)%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>.'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
@@ -143,6 +143,13 @@ bindkey '^I' ^I
 function chpwd()
 {
 	l
+}
+
+function joblist()
+{
+	if [[ -n $(jobs) ]]; then
+		echo $fg_bold[green]$(jobs -p | sed 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*  \(.*\)/\1:[\4]\2/' | tr '\n' ' ')$fg_no_bold[default]
+	fi
 }
 
 if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
