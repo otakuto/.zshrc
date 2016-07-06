@@ -26,6 +26,8 @@ alias gd='git diff'
 
 alias agg='ag -g'
 
+alias sudo='sudo '
+
 alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
 alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
 alias -s py=python
