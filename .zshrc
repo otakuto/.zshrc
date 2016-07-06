@@ -99,20 +99,22 @@ bindkey -r '^['
 
 stty stop undef
 
-for i in {1..9}; do
-eval "
-function ^\[$i()
+for i in {1..9}
 {
-	if [[ -n \$(jobs) ]]; then
-		zle push-line
-		BUFFER=' fg %$i'
-		zle accept-line
-	fi
+	eval\
+	"
+	function ^\[$i()
+	{
+		if [[ -n \$(jobs) ]]; then
+			zle push-line
+			BUFFER=' fg %$i'
+			zle accept-line
+		fi
+	}
+	zle -N ^\[$i
+	bindkey '^[$i' ^\[$i
+	"
 }
-zle -N ^\[$i
-bindkey '^[$i' ^\[$i
-"
-done
 
 function ^M()
 {
