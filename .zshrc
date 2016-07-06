@@ -161,6 +161,21 @@ function ^I()
 zle -N ^I
 bindkey '^I' ^I
 
+function ^G()
+{
+	case ${BUFFER:0:2} in
+		'l ')
+		BUFFER=${BUFFER:2};;
+		'v ')
+		BUFFER='l '${BUFFER:2};;
+		*)
+		BUFFER='l '$BUFFER;;
+	esac
+	zle end-of-line
+}
+zle -N ^G
+bindkey '^G' ^G
+
 function chpwd()
 {
 	l
