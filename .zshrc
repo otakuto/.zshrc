@@ -127,11 +127,15 @@ bindkey '^M' ^M
 
 function ^V()
 {
-	if [[ ${BUFFER:0:2} = 'v ' ]]; then
-		BUFFER=${BUFFER:2}
-	else
-		BUFFER='v '$BUFFER
-	fi
+
+	case ${BUFFER:0:2} in
+		'v ')
+		BUFFER=${BUFFER:2};;
+		'l ')
+		BUFFER='v '${BUFFER:2};;
+		*)
+		BUFFER='v '$BUFFER;;
+	esac
 	zle end-of-line
 }
 zle -N ^V
