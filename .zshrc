@@ -105,7 +105,7 @@ for i in {1..9}
 	"
 	function ^\[$i()
 	{
-		if [[ -n \$(jobs) ]]; then
+		if jobs %$i &> /dev/null; then
 			zle push-line
 			BUFFER=' fg %$i'
 			zle accept-line
