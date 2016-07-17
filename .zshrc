@@ -190,7 +190,7 @@ function chpwd()
 function joblist()
 {
 	if [[ -n $(jobs) ]]; then
-		echo -n $fg_bold[green]$(jobs -p | sed -e '/(.*)/d' -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*  \(.*\)/\1:[\4]\2/' | tr '\n' ' ')$fg_no_bold[default]
+		echo -n $fg_bold[green]$(jobs -p | sed -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*\( (.*)\)\?  \(.*\)/\1:[\5]\2/' | tr '\n' ' ')$fg_no_bold[default]
 	fi
 }
 
