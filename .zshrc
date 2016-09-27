@@ -245,6 +245,10 @@ if [[ -z $TMUX ]]; then
 	fi
 fi
 
+if [ ! -e ~/.zsh ]; then
+	mkdir ~/.zsh
+fi
+
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
 	zcompile ~/.zshrc
 fi
