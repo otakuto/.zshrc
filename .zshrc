@@ -159,10 +159,8 @@ function ^I()
 	if [[ -z $BUFFER ]]; then
 		BUFFER='./'
 		zle end-of-line
-		zle expand-or-complete
-	else
-		zle expand-or-complete
 	fi
+	zle menu-complete
 }
 zle -N ^I
 bindkey '^I' ^I
