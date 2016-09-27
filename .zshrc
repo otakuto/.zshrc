@@ -130,7 +130,6 @@ bindkey '^M' ^M
 
 function ^V()
 {
-
 	case ${BUFFER:0:2} in
 		'v ')
 		BUFFER=${BUFFER:2};;
