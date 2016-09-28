@@ -162,7 +162,7 @@ function ^I()
 		BUFFER='./'
 		zle end-of-line
 	fi
-	zle menu-complete
+	zle expand-or-complete
 }
 zle -N ^I
 bindkey '^I' ^I
