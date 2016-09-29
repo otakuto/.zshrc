@@ -46,7 +46,7 @@ zmodload zsh/complist
 
 autoload -U compinit && compinit -d ~/.zsh/.zcompdump
 autoload -U colors && colors
-autoload history-search-end
+autoload -U history-search-end
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z} r:|[-_.]=**'
