@@ -73,7 +73,6 @@ setopt extended_history
 setopt inc_append_history
 setopt promptsubst
 setopt always_last_prompt
-setopt print_exit_value
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
