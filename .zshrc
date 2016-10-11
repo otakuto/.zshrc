@@ -169,6 +169,10 @@ bindkey '^I' ^I
 
 function ^K()
 {
+	if [[ -z $BUFFER ]]; then
+		BUFFER='./'
+		zle end-of-line
+	fi
 	zle menu-select
 }
 zle -N ^K
