@@ -4,7 +4,7 @@ export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
 export LESSHISTFILE=-
-export EDITOR=vim
+export EDITOR=nvim
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -12,9 +12,9 @@ alias l='ls -halF --time-style=long-iso'
 alias xxd='xxd -g1'
 alias xxr='xxd -g1 -r'
 alias du='du -sh'
-alias v='vim'
-alias vp='vim -p'
-alias v-='vim -'
+alias v='nvim'
+alias vp='nvim -p'
+alias v-='nvim -'
 alias ext='extract'
 alias clang='clang -std=c11 -Wall'
 alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
