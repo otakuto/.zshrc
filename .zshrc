@@ -1,4 +1,4 @@
-export PS1='$(joblist)%(1j.'$'\n''.)%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
+export PS1='${vcs_info_msg_0_}${vcs_info_msg_0_:+'$'\n}${job_info_msg}${job_info_msg:+'$'\n}%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>.'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
@@ -47,12 +47,15 @@ zmodload zsh/complist
 autoload -U compinit && compinit -d ~/.zsh/.zcompdump
 autoload -U colors && colors
 autoload -U history-search-end
+autoload -Uz vcs_info
 
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z} r:|[-_.]=**'
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors '${LS_COLORS}'
 zstyle ':completion:*' use-cache yes
+zstyle ':vcs_info:*' formats '%F{green}%s:[%b]%f'
+zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
 
 setopt auto_menu
 setopt auto_list
@@ -71,7 +74,7 @@ setopt hist_reduce_blanks
 setopt share_history
 setopt extended_history
 setopt inc_append_history
-setopt promptsubst
+setopt prompt_subst
 setopt always_last_prompt
 
 bindkey '^A' beginning-of-line
@@ -198,10 +201,18 @@ function chpwd()
 	l
 }
 
-function joblist()
+function precmd()
+{
+	vcs_info
+	job_info
+}
+
+function job_info()
 {
 	if [[ -n $(jobs) ]]; then
-		echo -n $fg_bold[green]$(jobs -p | sed -e '/^(.*)$/d' -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*\( (.*)\)\?  \(.*\)/\1:[\5]\2/' | tr '\n' ' ')$fg_no_bold[default]
+		job_info_msg=$fg_bold[green]$(jobs -p | sed -e '/^(.*)$/d' -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*\( (.*)\)\?  \(.*\)/\1:[\5]\2/' | tr '\n' ' ')$fg_no_bold[default]
+	else
+		job_info_msg=''
 	fi
 }
 
