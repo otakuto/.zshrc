@@ -261,7 +261,7 @@ function extract()
 }
 
 if [[ -z $TMUX ]]; then
-	if [[ -n $(tmux list-sessions) ]]; then
+	if tmux list-sessions; then
 		tmux attach
 	else
 		tmux
