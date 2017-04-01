@@ -22,6 +22,8 @@ alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
 alias gst='git status'
 alias gp='git push'
+alias gco='git checkout'
+alias gcob='git checkout -b'
 alias gca='git commit -a -m'
 alias gca!='git commit -a --amend -m'
 alias gcm='git commit -m'
