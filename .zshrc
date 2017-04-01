@@ -1,4 +1,5 @@
 export PS1='${vcs_info_msg_0_}${vcs_info_msg_0_:+'$'\n}${job_info_msg}${job_info_msg:+'$'\n}%F{yellow}%n%f@%F{magenta}%m%f:%F{cyan}%d%f%(!.#.$)'
+export PATH="/usr/lib/ccache/bin/:${PATH}"
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>.'
 export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
