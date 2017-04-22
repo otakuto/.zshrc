@@ -236,7 +236,7 @@ if type ag &> /dev/null; then
 fi
 
 if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
-	brightness()
+	function brightness()
 	{
 		if [[ $# != 1 ]]; then
 			echo 'Usage: '$0' <value>'
@@ -248,7 +248,7 @@ if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 fi
 
 if type ip &> /dev/null; then
-	chmac()
+	function chmac()
 	{
 		if [[ $# != 2 ]]; then
 			echo 'Usage: '$0' <interface> <address>'
