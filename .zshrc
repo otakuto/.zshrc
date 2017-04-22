@@ -222,6 +222,19 @@ function job_info()
 	fi
 }
 
+if type ag &> /dev/null; then
+	function ag()
+	{
+		grep -n -i $1 -r .
+	}
+
+	unalias agg
+	function agg()
+	{
+		find -iname '*'$1'*' -type f | grep -v '/\.' | sed -e s@./@@
+	}
+fi
+
 if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 	brightness()
 	{
