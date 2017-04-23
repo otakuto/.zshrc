@@ -46,6 +46,7 @@ alias -s hs=runhaskell
 alias -s png=feh
 alias -s gif=feh
 alias -s jpg=feh
+alias -s tex='(){ptex2pdf -l $1 && if pgrep firefox &> /dev/null; then firefox $1:r.pdf; fi}'
 alias -s diag='(){blockdiag $1 && feh $1:r.png}'
 
 zmodload zsh/complist
