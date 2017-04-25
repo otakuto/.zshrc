@@ -223,7 +223,7 @@ function job_info()
 	fi
 }
 
-if type ag &> /dev/null; then
+if ! type ag &> /dev/null; then
 	function ag()
 	{
 		grep -n -i $1 -r .
