@@ -69,7 +69,7 @@ if type wpa_supplicant &> /dev/null; then
 	wifi()
 	{
 		if [[ $# != 3 ]]; then
-			echo 'Usage: wifi <interface> <essid> <key>'
+			echo 'Usage: '$0' <interface> <essid> <key>'
 			return
 		fi
 		
@@ -98,7 +98,7 @@ if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 	brightness()
 	{
 		if [[ $# != 1 ]]; then
-			echo 'Usage: brightness <value>'
+			echo 'Usage: '$0' <value>'
 			return
 		fi
 
