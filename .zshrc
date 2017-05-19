@@ -99,6 +99,17 @@ function ^V()
 zle -N ^V
 bindkey '^V' ^V
 
+function ^Z()
+{
+	echo
+	if fg; then
+		zle push-line
+		zle accept-line
+	fi
+}
+zle -N ^Z
+bindkey '^Z' ^Z
+
 function chpwd()
 {
 	l;
