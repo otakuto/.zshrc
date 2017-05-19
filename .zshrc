@@ -34,6 +34,9 @@ alias gcm!='git commit --amend -m'
 alias ga='git add'
 alias gap='git add -p'
 alias gd='git diff'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
 
 alias agg='ag -g'
 
