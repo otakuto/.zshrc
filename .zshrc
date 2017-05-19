@@ -76,7 +76,6 @@ if type wpa_supplicant &> /dev/null; then
 		rm -rf /run/wpa_supplicant
 		killall wpa_supplicant
 		killall dhcpcd
-		ip link set $1 down
 		ip link set $1 up
 		iw $1 connect $2
 		wpa_supplicant -B -D wext -i $1 -c <(echo "\
