@@ -44,6 +44,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+function chpwd()
+{
+	l;
+}
+
 if type wpa_supplicant &> /dev/null; then
 	wifi()
 	{
