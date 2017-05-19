@@ -106,6 +106,20 @@ if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 	}
 fi
 
+if type ip &> /dev/null; then
+	chmac()
+	{
+		if [[ $# != 2 ]]; then
+			echo 'Usage: '$0' <interface> <address>'
+			return
+		fi
+
+		ip link set $1 down
+		ip link set $1 address $2
+		ip link set $1 up
+	}
+fi
+
 if [[ -z $TMUX ]]; then
 	if ! tmux attach; then
 		tmux
