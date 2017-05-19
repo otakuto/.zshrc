@@ -44,6 +44,18 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
+	brightness()
+	{
+		if [[ $# != 1 ]]; then
+			echo 'Usage: brightness <value>'
+			return
+		fi
+
+		echo $1 > /sys/class/backlight/intel_backlight/brightness
+	}
+fi
+
 if [[ -z $TMUX ]]; then
 	if ! tmux attach; then
 		tmux
