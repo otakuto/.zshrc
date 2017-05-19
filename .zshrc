@@ -4,8 +4,11 @@ export HISTFILE=~/.zsh/.zsh_history
 export HISTSIZE=65536
 export SAVEHIST=65536
 
-alias ll='ls -alF --color'
-alias clang++='clang++ -std=c++1y -stdlib=libc++'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ll='ls -halF --time-style=long-iso'
+alias clang='clang -std=c11'
+alias clang++='clang++ -std=c++1z -stdlib=libc++'
 
 zmodload zsh/complist
 
