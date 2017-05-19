@@ -31,6 +31,7 @@ setopt auto_menu
 setopt auto_list
 setopt auto_pushd
 setopt correct
+setopt globdots
 setopt magic_equal_subst
 setopt auto_cd
 setopt auto_param_slash
@@ -38,6 +39,9 @@ setopt extended_history
 setopt share_history
 setopt ignore_eof
 setopt no_beep
+setopt no_flow_control
+setopt numeric_glob_sort
+setopt hist_ignore_space
 
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
