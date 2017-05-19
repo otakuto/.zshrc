@@ -29,6 +29,7 @@ setopt auto_cd
 setopt auto_param_slash
 setopt extended_history
 setopt share_history
+setopt no_beep
 
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
