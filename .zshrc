@@ -11,6 +11,12 @@ alias ll=l
 alias clang='clang -std=c11 -Wall'
 alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
+alias gst='git status'
+alias gp='git push'
+alias gca='git commit -a -m'
+alias gca!='git commit -a --amend -m'
+alias ga='git add'
+
 zmodload zsh/complist
 
 autoload -U compinit && compinit -d ~/.zsh/.zcompdump
