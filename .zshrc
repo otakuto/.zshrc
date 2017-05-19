@@ -44,6 +44,35 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+if type wpa_supplicant &> /dev/null; then
+	wifi()
+	{
+		if [[ $# != 3 ]]; then
+			echo 'Usage: wifi <interface> <essid> <key>'
+			return
+		fi
+		
+		rm -rf /run/wpa_supplicant
+		killall wpa_supplicant
+		killall dhcpcd
+		ip link set $1 down
+		ip link set $1 up
+		iw $1 connect $2
+		wpa_supplicant -B -D wext -i $1 -c <(echo "\
+		ctrl_interface=/run/wpa_supplicant
+		ap_scan=1
+		network={
+			ssid=\"$2\"
+			key_mgmt=WPA-PSK
+			proto=WPA WPA2
+			pairwise=CCMP TKIP
+			group=CCMP TKIP
+			psk=\"$3\"
+		}")
+		dhcpcd $1
+	}
+fi
+
 if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 	brightness()
 	{
