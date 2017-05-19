@@ -220,7 +220,7 @@ function precmd()
 function job_info()
 {
 	if [[ -n $(jobs) ]]; then
-		job_info_msg=$fg_bold[green]$(jobs -p | sed -e '/^(.*)$/d' -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) .*\( (.*)\)\?  \(.*\)/\1:[\5]\2/' | tr '\n' ' ')$fg_no_bold[default]
+		job_info_msg=$fg_bold[green]$(jobs -p | sed -e '/^(.*)$/d' -e 's/\[\([0-9]\+\)\]  \([-+ ]\) \([0-9]\+\) \([a-z]\+\)\( (.*)\)\?  \(.*\)/\1:[\6]\2/' | tr '\n' ' ')$fg_no_bold[default]
 	else
 		job_info_msg=''
 	fi
