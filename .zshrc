@@ -76,7 +76,7 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey '^[q' push-line
 bindkey -r '^['
 
-function c-m()
+function ^M()
 {
 	zle accept-line
 	if [[ -z $BUFFER ]]; then
@@ -84,10 +84,10 @@ function c-m()
 		l
 	fi
 }
-zle -N c-m
-bindkey '^M' c-m
+zle -N ^M
+bindkey '^M' ^M
 
-function c-v()
+function ^V()
 {
 	if [[ ${BUFFER:0:2} = 'v ' ]]; then
 		BUFFER=${BUFFER:2}
@@ -96,8 +96,8 @@ function c-v()
 	fi
 	CURSOR='$'
 }
-zle -N c-v
-bindkey '^V' c-v
+zle -N ^V
+bindkey '^V' ^V
 
 function chpwd()
 {
