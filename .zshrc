@@ -9,6 +9,7 @@ alias grep='grep --color=auto'
 alias l='ls -halF --time-style=long-iso'
 alias ll=l
 alias v=vim
+alias ext=extract
 alias clang='clang -std=c11 -Wall'
 alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
@@ -75,7 +76,7 @@ if type wpa_supplicant &> /dev/null; then
 			echo 'Usage: '$0' <interface> <essid> <key>'
 			return
 		fi
-		
+
 		rm -rf /run/wpa_supplicant
 		killall wpa_supplicant
 		killall dhcpcd
@@ -121,6 +122,21 @@ if type ip &> /dev/null; then
 		ip link set $1 up
 	}
 fi
+
+function extract()
+{
+	case $1 in
+		*.tar) tar xvf $1;;
+		*.tar.gz|*.tgz) tar xzvf $1;;
+		*.gz) gzip -cd $1 > ${1:r};;
+		*.tar.bz2|*.tbz) tar xjvf $1;;
+		*.bz2) bzip2 -cd $1 > ${1:r};;
+		*.tar.xz) tar Jxvf $1;;
+		*.xz) xz -cd $1 > ${1:r};;
+		*.zip) unzip $1;;
+		*.rar) unrar x $1;;
+	esac
+}
 
 if [[ -z $TMUX ]]; then
 	if ! tmux attach; then
