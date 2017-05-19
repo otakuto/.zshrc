@@ -81,7 +81,7 @@ function ^M()
 {
 	zle accept-line
 	if [[ -z $BUFFER ]]; then
-		echo ''
+		echo
 		l
 	fi
 }
