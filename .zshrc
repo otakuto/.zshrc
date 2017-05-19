@@ -54,6 +54,7 @@ setopt no_flow_control
 setopt numeric_glob_sort
 setopt hist_ignore_space
 
+bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
