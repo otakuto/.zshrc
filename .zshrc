@@ -41,9 +41,14 @@ setopt no_beep
 
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
+bindkey '^H' vi-backward-char
+bindkey '^L' vi-forward-char
+bindkey '^O' backward-delete-char
 bindkey '^[[3~' delete-char
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
+bindkey '^[[7~' beginning-of-line
+bindkey '^[[8~' end-of-line
 bindkey '^[OH' beginning-of-line
 bindkey '^[OF' end-of-line
 bindkey -M menuselect 'h' vi-backward-char
