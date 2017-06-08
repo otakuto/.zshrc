@@ -251,6 +251,12 @@ if [ -e /sys/class/backlight/intel_backlight/brightness ]; then
 	}
 fi
 
+function offdisplay()
+{
+	xset dpms force off ||
+	setterm -blank force
+}
+
 if type ip &> /dev/null; then
 	function chmac()
 	{
