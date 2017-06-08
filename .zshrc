@@ -180,17 +180,6 @@ function ^I()
 zle -N ^I
 bindkey '^I' ^I
 
-function ^K()
-{
-	if [[ -z $BUFFER ]]; then
-		BUFFER='./'
-		zle end-of-line
-	fi
-	zle menu-select
-}
-zle -N ^K
-bindkey '^K' ^K
-
 function ^G()
 {
 	case ${BUFFER:0:2} in
