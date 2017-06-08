@@ -44,11 +44,11 @@ alias sudo='sudo '
 
 alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
 alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
-alias -s py=python
-alias -s hs=runhaskell
-alias -s png=feh
-alias -s gif=feh
-alias -s jpg=feh
+alias -s py='python'
+alias -s hs='runhaskell'
+alias -s png='feh'
+alias -s gif='feh'
+alias -s jpg='feh'
 alias -s tex='(){ptex2pdf -l $1 && if pgrep firefox &> /dev/null; then firefox $1:r.pdf; fi}'
 alias -s diag='(){blockdiag $1 && feh $1:r.png}'
 
