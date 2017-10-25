@@ -199,6 +199,11 @@ function ^G()
 zle -N ^G
 bindkey '^G' ^G
 
+function zshaddhistory()
+{
+	whence ${${(z)1}[1]} >| /dev/null || return 1
+}
+
 function chpwd()
 {
 	l
