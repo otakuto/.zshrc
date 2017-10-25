@@ -278,6 +278,11 @@ function extract()
 	esac
 }
 
+function gclg()
+{
+	git clone https://github.com/"${@}"
+}
+
 if [[ -z $TMUX ]]; then
 	if tmux list-sessions &> /dev/null; then
 		tmux attach
