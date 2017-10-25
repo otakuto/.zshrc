@@ -29,8 +29,14 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gca='git commit -a -m'
 alias gca!='git commit -a --amend -m'
-alias gcm='git commit -m'
-alias gcm!='git commit --amend -m'
+function gcm()
+{
+	git commit -m "${*}"
+}
+function gcm!()
+{
+	git commit --amend -m "${*}"
+}
 alias ga='git add'
 alias gap='git add -p'
 alias gd='git diff'
