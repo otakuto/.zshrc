@@ -147,15 +147,33 @@ function ^M()
 zle -N ^M
 bindkey '^M' ^M
 
+function ^T()
+{
+	case ${BUFFER:0:1} in
+		' ')
+		BUFFER=${BUFFER:1};;
+		*)
+		BUFFER=' '$BUFFER;;
+	esac
+	zle end-of-line
+}
+zle -N ^T
+bindkey '^T' ^T
+
 function ^V()
 {
+	local space=''
+	if [[ ${BUFFER:0:1} == ' ' ]] then
+		BUFFER=${BUFFER:1}
+		space=' '
+	fi
 	case ${BUFFER:0:2} in
 		'v ')
-		BUFFER=${BUFFER:2};;
+		BUFFER=${space}${BUFFER:2};;
 		'l ')
-		BUFFER='v '${BUFFER:2};;
+		BUFFER=${space}'v '${BUFFER:2};;
 		*)
-		BUFFER='v '$BUFFER;;
+		BUFFER=${space}'v '$BUFFER;;
 	esac
 	zle end-of-line
 }
@@ -186,13 +204,18 @@ bindkey '^I' ^I
 
 function ^G()
 {
+	local space=''
+	if [[ ${BUFFER:0:1} == ' ' ]] then
+		BUFFER=${BUFFER:1}
+		space=' '
+	fi
 	case ${BUFFER:0:2} in
 		'l ')
-		BUFFER=${BUFFER:2};;
+		BUFFER=${space}${BUFFER:2};;
 		'v ')
-		BUFFER='l '${BUFFER:2};;
+		BUFFER=${space}'l '${BUFFER:2};;
 		*)
-		BUFFER='l '$BUFFER;;
+		BUFFER=${space}'l '$BUFFER;;
 	esac
 	zle end-of-line
 }
