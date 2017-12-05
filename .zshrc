@@ -42,7 +42,7 @@ alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 
-alias agg='ag -g'
+alias fd='ag -g'
 
 alias sudo='sudo '
 
@@ -253,8 +253,8 @@ if ! type ag &> /dev/null; then
 		grep -n -i $1 -r .
 	}
 
-	unalias agg
-	function agg()
+	unalias fd
+	function fd()
 	{
 		find -iname '*'$1'*' -type f | grep -v '/\.' | sed -e s@./@@
 	}
