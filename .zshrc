@@ -20,6 +20,10 @@ alias ext='extract'
 alias clang='clang -std=c11 -Wall'
 alias clang++='clang++ -std=c++1z -stdlib=libc++ -Wall'
 
+alias dockerrminone='docker rmi $(docker images | grep \<none\> | awk "{print \$3}")'
+alias dockerrmall='docker rm $(docker ps -a --format={{.Names}})'
+alias dockerkillall='docker kill $(docker ps -a --format={{.Names}})'
+
 alias gst='git stash'
 alias gsp='git stash pop'
 alias gl='git pull'
