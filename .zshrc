@@ -45,6 +45,7 @@ alias gcpc='git cherry-pick --continue'
 alias fd='ag -g'
 
 alias sudo='sudo '
+alias doas='doas '
 
 alias -s c='(){out=${1:h}/a.out && clang $1 -o $out && shift && $out $@}'
 alias -s cpp='(){out=${1:h}/a.out && clang++ $1 -o $out && shift && $out $@}'
