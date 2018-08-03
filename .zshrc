@@ -10,6 +10,7 @@ export EDITOR=nvim
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias l='ls -halF --time-style=long-iso'
+alias lessf='less +F'
 alias xxd='xxd -g1'
 alias xxr='xxd -g1 -r'
 alias du='du -sh'
